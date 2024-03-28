@@ -7,10 +7,12 @@
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <link rel="stylesheet" href="./CSS/index.css">
 
   <title>Frontend Mentor | IP Address Tracker</title>
 
@@ -24,31 +26,64 @@
     .attribution a {
       color: hsl(228, 45%, 44%);
     }
-
-    #map {
-      height: 180px;
-
-    }
   </style>
 </head>
 
 <body>
 
-  IP Address Tracker
 
-  Search for any IP address or domain
+  <div class="main">
+    <div class="writtenDetails">
+      <header>
+        <h1 class="heading">IP Address Tracker
+        </h1>
+      </header>
 
-  IP Address
-  Location
-  Timezone
-  UTC <!-- add offset value dynamically using the API -->
-  ISP
+      <main class="ipDetails">
+        <!--IP address Entrance-->
+        <div class="ipAddressEnter">
+          <form action="#">
+            <input type="text" placeholder=" Search for any IP address or domain" required class="enterIP">
+            <button class="submit"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+                <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
+              </svg></button>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+          </form>
+
+        </div>
+        <!--Result div-->
+        <div class="result">
+          <div class="ipAdd showR">
+            <h6>Ip Address</h6>
+            <h2>192.212.174.101</h2>
+          </div>
+          <div class="location showR">
+            <h6>Location</h6>
+            <h2>Brooklyn, NY 10001</h2>
+          </div>
+          <div class="timezone showR">
+            <h6>Timezone</h6>
+            <h2>UTC -05:00</h2>
+          </div>
+          <div class="isp showR">
+            <h6>isp</h6> <!-- add offset value dynamically using the API -->
+            <h2>SpaceX Starlink</h2>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+
   </div>
+  <!--Heading-->
+
+
   <div id="map"></div>
+  <!-- <div class="btn-group">
+    <label class="btn btn-default" uib-btn-checkbox ng-model="dasModel.first">First</label>
+    <label class="btn btn-default" uib-btn-checkbox ng-model="dasModel.second">Second</label>
+  </div> -->
 
   <script>
 
