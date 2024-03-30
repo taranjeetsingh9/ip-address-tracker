@@ -7,6 +7,102 @@ body {
   color: hsl(0, 0%, 17%);
 }
 
+@media only screen and (max-width: 430px) {
+  .main {
+    margin: 0;
+    height: 33vh;
+  }
+
+  .heading {
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+  }
+  .ipDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0rem 2rem;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+  }
+
+  .ipAddressEnter {
+    margin-bottom: 2rem;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+  }
+  form {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    border-radius: 15px !important;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+  }
+  .enterIP {
+    padding: 20px 10px;
+    flex: 1;
+    border-radius: 15px 0 0 15px;
+    border: none;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+  }
+  .enterIP:focus {
+    outline: none;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+  }
+  .submit {
+    width: 60px;
+    background-color: black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+  }
+
+  .result {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: none;
+    background-color: white;
+    border-radius: 15px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    margin: 0;
+  }
+  .showR {
+    text-align: center;
+    margin: 0.8rem;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+  }
+  .result h6 {
+    color: hsl(0, 0%, 59%);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    letter-spacing: 1px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 800;
+  }
+
+  #map {
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+  }
+}
+
 .main {
   margin: 8rem auto;
   width: 92%;
@@ -102,100 +198,4 @@ form {
   position: absolute;
   top: 0px;
   z-index: -1;
-}
-
-@media only screen and (max-width: 430px) {
-  .main {
-    margin: 0;
-    height: 33vh;
-  }
-
-  .heading {
-    padding: 1.5rem;
-    text-align: center;
-    color: white;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-  }
-  .ipDetails {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 0rem 2rem;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-  }
-
-  .ipAddressEnter {
-    margin-bottom: 2rem;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-  }
-  form {
-    width: 100%;
-    display: flex;
-    background-color: white;
-    border-radius: 15px !important;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-  }
-  .enterIP {
-    padding: 20px 10px;
-    flex: 1;
-    border-radius: 15px 0 0 15px;
-    border: none;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-  }
-  .enterIP:focus {
-    outline: none;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-  }
-  .submit {
-    width: 60px;
-    background-color: black;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border: none;
-  }
-
-  .result {
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border: none;
-    background-color: white;
-    border-radius: 15px;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    margin: 0;
-  }
-  .showR {
-    text-align: center;
-    margin: 0.8rem;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-  }
-  .result h6 {
-    color: hsl(0, 0%, 59%);
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-    letter-spacing: 1px;
-    font-family: "Rubik", sans-serif;
-    font-weight: 800;
-  }
-
-  #map {
-    height: 100vh;
-    position: absolute;
-    top: 0px;
-    z-index: -1;
-  }
 }
