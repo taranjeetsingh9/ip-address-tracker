@@ -8,11 +8,12 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> -->
   <link rel="stylesheet" href="./CSS/index.css">
+  <script src="./index.js" defer></script>
 
   <title>Frontend Mentor | IP Address Tracker</title>
 
@@ -44,7 +45,7 @@
         <div class="ipAddressEnter">
           <form action="#">
             <input type="text" placeholder=" Search for any IP address or domain" required class="enterIP">
-            <button class="submit"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+            <button class="submit" id="sbtn"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
                 <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
               </svg></button>
 
@@ -55,19 +56,19 @@
         <div class="result">
           <div class="ipAdd showR">
             <h6>Ip Address</h6>
-            <h2>192.212.174.101</h2>
+            <h2 class="ipAddValue">192.212.174.101</h2>
           </div>
           <div class="location showR">
             <h6>Location</h6>
-            <h2>Brooklyn, NY 10001</h2>
+            <h2 class="ipLocation">Brooklyn, NY 10001</h2>
           </div>
           <div class="timezone showR">
             <h6>Timezone</h6>
-            <h2>UTC -05:00</h2>
+            <h2 class="timeZone">UTC -05:00</h2>
           </div>
           <div class="isp showR">
             <h6>isp</h6> <!-- add offset value dynamically using the API -->
-            <h2>SpaceX Starlink</h2>
+            <h2 class="isps">SpaceX Starlink</h2>
           </div>
         </div>
 
@@ -79,13 +80,13 @@
   <!--Heading-->
 
 
-  <div id="map"></div>
+  <!-- <div id="map"></div> -->
   <!-- <div class="btn-group">
     <label class="btn btn-default" uib-btn-checkbox ng-model="dasModel.first">First</label>
     <label class="btn btn-default" uib-btn-checkbox ng-model="dasModel.second">Second</label>
   </div> -->
 
-  <script>
+  <!-- <script>
 
     var map = L.map('map').setView([51.505, -0.09], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -93,7 +94,7 @@
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-  </script>
+  </script> -->
 
 </body>
 
