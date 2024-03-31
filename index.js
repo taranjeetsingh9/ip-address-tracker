@@ -1,9 +1,9 @@
 /*=================================================================
-----------------------IP Address API ------------------------------
+----------------------IP Address & Googe Maps API ------------------------------
 ==================================================================*/
 
 const API_Endpoint = "https://geo.ipify.org/api/v2/country,city";
-const API_key = "at_MvZqZLcERCM0uC1KcpjVtBJbFDZLk";
+const API_key = "at_hNfloLjASk9KLyB88UuJ7RH8wuY3Q";
 
 let button = document.getElementById("sbtn");
 let ipAddValue = document.querySelector(".ipAddValue");
@@ -45,6 +45,29 @@ button.addEventListener("click", async () => {
   try {
     const data = await displayIPinfo(ipValue);
     updateInfo(data);
+    console.log(data);
+    async function initMap() {
+      let latids = data.location.lat;
+      let longs = data.location.lng;
+
+      const clientLocation = { lat: latids, lng: longs };
+
+      const { Map } = await google.maps.importLibrary("maps");
+      const { AdvancedMarkerElement } = await google.maps.importLibrary(
+        "marker"
+      );
+
+      let map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: clientLocation,
+      });
+
+      let marker = new google.maps.Marker({
+        position: clientLocation,
+        map: map,
+      });
+    }
+    initMap();
   } catch (error) {
     console.log("Error Fetching IP information: ", error.message);
   }
@@ -56,14 +79,52 @@ window.addEventListener("DOMContentLoaded", async () => {
     const data = await displayIPinfo("");
     console.log(data);
     updateInfo(data);
+
+    async function initMap() {
+      let latids = data.location.lat;
+      let longs = data.location.lng;
+
+      const clientLocation = { lat: latids, lng: longs };
+
+      const { Map } = await google.maps.importLibrary("maps");
+      const { AdvancedMarkerElement } = await google.maps.importLibrary(
+        "marker"
+      );
+
+      let map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: clientLocation,
+      });
+
+      let marker = new google.maps.Marker({
+        position: clientLocation,
+        map: map,
+      });
+
+      // const { Map } = await google.maps.importLibrary("maps");
+      // const { AdvancedMarkerElement } = await google.maps.importLibrary(
+      //   "marker"
+      // );
+
+      // let latids = data.location.lat;
+      // let longs = data.location.lng;
+
+      // map = new Map(document.getElementById("map"), {
+      //   center: { lat: latids, lng: longs },
+      //   zoom: 8,
+      // });
+
+      // const marker = new AdvancedMarkerElement({
+      //   map: map,
+      //   position: position,
+      //   title: "Uluru",
+      // });
+    }
+    initMap();
   } catch (error) {
     console.error("Error Fetching IP information: ", error.message);
   }
 });
-
-/*======================================================
--------------------MAP API -----------------------------
-======================================================*/
 
 /*======================================================
 Improvements after compeletion
