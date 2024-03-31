@@ -29,7 +29,14 @@ async function displayIPinfo(ipValue = "") {
 
 // function to update information in frontend
 function updateInfo(data) {
+  if (!data) {
+    alert("unable to fetch data ");
+  }
   const { ip, location, isp } = data;
+
+  if (!location) {
+    alert("Location data is missing");
+  }
   const { region, city, postalCode, timezone } = location;
   ipAddValue.innerText = ip;
 
@@ -37,37 +44,40 @@ function updateInfo(data) {
   timeZone.innerText = `UTC ${timezone}`;
   iProvider.innerText = isp;
 }
+// function to add map with marker
+async function initMap(latids, longs) {
+  try {
+    const clientLocation = { lat: latids, lng: longs };
 
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+    let map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 12,
+      center: clientLocation,
+    });
+
+    let marker = new google.maps.Marker({
+      position: clientLocation,
+      map: map,
+    });
+  } catch (error) {
+    console.error("Error initializing map:", error);
+  }
+}
 // Function to handle the click event on the button and fetch IP information
 button.addEventListener("click", async () => {
   let ipValue = document.querySelector(".enterIP").value;
 
   try {
     const data = await displayIPinfo(ipValue);
+    // call update info function
     updateInfo(data);
     console.log(data);
-    async function initMap() {
-      let latids = data.location.lat;
-      let longs = data.location.lng;
-
-      const clientLocation = { lat: latids, lng: longs };
-
-      const { Map } = await google.maps.importLibrary("maps");
-      const { AdvancedMarkerElement } = await google.maps.importLibrary(
-        "marker"
-      );
-
-      let map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 12,
-        center: clientLocation,
-      });
-
-      let marker = new google.maps.Marker({
-        position: clientLocation,
-        map: map,
-      });
-    }
-    initMap();
+    let latids = data.location.lat;
+    let longs = data.location.lng;
+    // call map function
+    initMap(latids, longs);
   } catch (error) {
     console.log("Error Fetching IP information: ", error.message);
   }
@@ -78,49 +88,12 @@ window.addEventListener("DOMContentLoaded", async () => {
   try {
     const data = await displayIPinfo("");
     console.log(data);
+    // call update info function
     updateInfo(data);
-
-    async function initMap() {
-      let latids = data.location.lat;
-      let longs = data.location.lng;
-
-      const clientLocation = { lat: latids, lng: longs };
-
-      const { Map } = await google.maps.importLibrary("maps");
-      const { AdvancedMarkerElement } = await google.maps.importLibrary(
-        "marker"
-      );
-
-      let map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 12,
-        center: clientLocation,
-      });
-
-      let marker = new google.maps.Marker({
-        position: clientLocation,
-        map: map,
-      });
-
-      // const { Map } = await google.maps.importLibrary("maps");
-      // const { AdvancedMarkerElement } = await google.maps.importLibrary(
-      //   "marker"
-      // );
-
-      // let latids = data.location.lat;
-      // let longs = data.location.lng;
-
-      // map = new Map(document.getElementById("map"), {
-      //   center: { lat: latids, lng: longs },
-      //   zoom: 8,
-      // });
-
-      // const marker = new AdvancedMarkerElement({
-      //   map: map,
-      //   position: position,
-      //   title: "Uluru",
-      // });
-    }
-    initMap();
+    let latids = data.location.lat;
+    let longs = data.location.lng;
+    // call map function
+    initMap(latids, longs);
   } catch (error) {
     console.error("Error Fetching IP information: ", error.message);
   }
