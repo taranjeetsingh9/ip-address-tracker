@@ -43,8 +43,6 @@ Throughout the development of this project, the following concepts were applied:
 
 ## Got feedback for us?
 
-Of course! Here's the revised section without mentioning "platform":
-
 Got feedback for me?
 I love receiving feedback! I'm always looking to improve my challenges and provide the best experience possible. So if you have anything you'd like to mention, please email tarans0927@gmail.com
 
