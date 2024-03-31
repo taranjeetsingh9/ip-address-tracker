@@ -93,12 +93,14 @@ form {
   font-family: "Rubik", sans-serif;
   font-weight: 800;
 }
-
+/*Google Maps Styling */
 #map {
-  height: 100vh;
+  height: 500px;
+  width: 92%;
   position: absolute;
-  top: 0px;
+  top: 44%;
   z-index: -1;
+  margin: 0 4%;
 }
 
 @media only screen and (max-width: 430px) {
@@ -187,11 +189,12 @@ form {
     font-family: "Rubik", sans-serif;
     font-weight: 800;
   }
-
   #map {
     height: 100vh;
+    width: 100%;
     position: absolute;
-    top: 0px;
+    top: 30%;
     z-index: -1;
+    margin: 0;
   }
 }
