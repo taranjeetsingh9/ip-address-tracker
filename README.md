@@ -4,7 +4,7 @@
 
 Thanks for checking out this.
 
-## The challenge ( live url: https://taranjeetsingh9.github.io/ip-address-tracker)
+## The challenge 
 
 ## IP Address Tracker
 
